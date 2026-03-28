@@ -19,7 +19,7 @@
     <div class="project_infotmations">
         <div class="information">
             <div class="logo_tags">
-                <img class="project_logo" src=“/LOGO.png" alt="Mylogo">
+                <img class="project_logo" src=“LOGO.png" alt="Mylogo">
                 <div class="intorduction-porject_tags">
                         <img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" />
                         <img src="https://img.shields.io/badge/C%2B%2B-17-blue" />
