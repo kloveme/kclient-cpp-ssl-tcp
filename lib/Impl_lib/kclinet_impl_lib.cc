@@ -1,3 +1,4 @@
+/**
 MIT License
 
 Copyright (c) 2026 半夜变身魔丸偷袭微软老巢(kloveme)
@@ -19,3 +20,38 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+#include "../../include/Impl/kclient_Impl.hpp"
+#include <string>
+
+kc::Impl::kclient_Impl& kc::Impl::kclient_Impl::setHost(const kc::method &req_method, const std::string &hostname)
+{
+    kc::Impl::kclient_Impl::config_method = req_method;
+    kc::Impl::kclient_Impl::config_hostname = hostname;
+    return *this;
+}
+
+kc::Impl::kclient_Impl& kc::Impl::kclient_Impl::setPath(const std::string &req_path)
+{
+    kc::Impl::kclient_Impl::config_path = req_path;
+    return *this;
+}
+
+kc::Impl::kclient_Impl& kc::Impl::kclient_Impl::addHeaders(const std::string &headers_key, const std::string &headers_value)
+{
+    kc::Impl::kclient_Impl::headers_map[headers_key] = headers_value;
+    return *this;
+}
+
+kc::Impl::kclient_Impl& kc::Impl::kclient_Impl::SSL(bool ssl)
+{
+    kc::Impl::kclient_Impl::config_is_ssl = ssl;
+    return *this;
+}
+
+kc::Impl::kclient_Impl& kc::Impl::kclient_Impl::timeout(long req_timeout)
+{
+    kc::Impl::kclient_Impl::timeout_number = req_timeout;
+    return *this;
+}

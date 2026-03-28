@@ -1,3 +1,5 @@
+
+/**
 MIT License
 
 Copyright (c) 2026 半夜变身魔丸偷袭微软老巢(kloveme)
@@ -19,3 +21,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+#include "../../include/Kclient.hpp"
+#include "../../include/Impl/kclient_Impl.hpp"
+#include <memory>
+
+std::unique_ptr<kc::kclient>
+kc::kclient::newClient ()
+{
+  return std::unique_ptr<kc::kclient>
+   (new kc::Impl::kclient_Impl ());
+}

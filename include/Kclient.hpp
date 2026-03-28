@@ -1,3 +1,4 @@
+/**
 MIT License
 
 Copyright (c) 2026 半夜变身魔丸偷袭微软老巢(kloveme)
@@ -19,3 +20,34 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+#ifndef KCLINET_HEADEFILE
+#define KCLINET_HEADEFILE
+
+#include <memory>
+#include <string>
+#include <sys/socket.h>
+namespace kc {
+    enum class method {
+        GET,
+        POST,
+    };
+    class kclient {
+        public:
+            virtual ~kclient() = default;
+            virtual kclient& setHost(const kc::method& req_method , 
+                const std::string& hostname) = 0;
+            virtual kclient& setPath(const std::string& 
+                req_path) = 0;
+            virtual kclient& addHeaders(const std::string& headers_key , 
+                const std::string& headers_value) = 0;
+            virtual kclient& timeout(long req_timeout) = 0;
+            virtual kclient& SSL(bool ssl) = 0;
+            static std::unique_ptr<kc::kclient> newClient ();
+    };
+    using clientPtr = std::unique_ptr
+        <kc::kclient>;
+}
+
+#endif
